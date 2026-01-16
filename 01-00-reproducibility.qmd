@@ -1,0 +1,29 @@
+# Introduction to Statistical Reproducibility
+
+The first set of tools we will discuss will be related to reproducibility. Reproducibility, the idea that same results from a study should be obtained if the study is repeated, is a key part of the scientific process. Here, we are particularly concerned with *statistical reproducibility*. That is, given the same data and same code, two analysts should get the exact same results.
+
+In practice, reproducibility means making your data and syntax available to other researchers. There are many ways to do this, but the [Open Science Framework website](https://osf.io/) is a fantastic option for making resources from research projects openly accessible to other researchers. Aside from the obvious advantages of minimizing fraud and bias, making research artifacts openly available also improves trust in the scientific process.
+
+:::fyi
+**PROTIP**
+
+Making your data and syntax available is something to consider during the planning phases of a study so that you can make this transparent in the IRB proposal. 
+:::
+
+
+The initial chapters of this book will address:
+
+- Installing Quarto and other computational tools;
+- Project organization; and
+- Using Quarto to integrate text and computation.
+
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- #| out-width: "100%" -->
+<!-- knitr::include_graphics("figs/01-00-stat-computing.png") -->
+<!-- ``` -->
+
+<br /><br />
+
+

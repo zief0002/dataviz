@@ -1,0 +1,81 @@
+project:
+  type: book
+  output-dir: docs
+  preview:
+    port: 4200
+    browser: true
+  # resources: 
+    # - codebooks/ #Add codebooks to docs
+
+book:
+  title: "Data Visualization: Summarizing and Communicating Patterns in Data"
+  author: "Chelsey Legacy and Andrew Zieffler"
+  date: "today"
+  page-navigation: false
+  bread-crumbs: false
+  sidebar:
+    search: true
+    background: '#3F4C64'
+  chapters:
+    - index.qmd
+    - part: 01-00-reproducibility.qmd
+      # chapters:
+    #     - 01-01-r-and-rstudio-installation.qmd
+    #     - 01-02-project-organization.qmd
+    #     - 01-03-introduction-to-quarto.qmd
+    #     - 01-04-more-quarto.qmd
+    #     - 01-05-creating-tables.qmd
+    # - part: 02-00-likelihood.qmd
+    #   chapters:
+    #     - 02-01-mathematical-foundations-probability-density.qmd
+    #     - 02-03-likelihood-framework-for-evidence.qmd
+    #     - 02-04-likelihood-framework-for-estimation.qmd
+    # - part: 03-00-modeling-nonlinearity.qmd
+    #   chapters:
+    #     - 03-01-polynomial-effects.qmd
+    #     - 03-02-information-criteria-and-model-selection.qmd
+    #     - 03-03-logarithmic-transformations-predictor.qmd
+    #     - 03-04-logarithmic-transformations-outcome.qmd
+    #     - 03-05-rule-of-the-bulge.qmd
+    # - part: 04-00-modeling-dichotomous-outcomes.qmd
+    #   chapters:
+    #     - 04-01-linear-probability-model.qmd
+    #     - 04-02-logistic-regression.qmd
+    #     - 04-03-more-logistic-regression.qmd
+    # #     - 04-04-assumptions.qmd
+    # - part: 05-00-modeling-nonindependence.qmd
+    #   chapters:
+    #     - 05-01-introduction-to-mixed-effects-models.qmd
+    #     - 05-02-lmer-average-change-over-time.qmd
+    #     - 05-03-lmer-other-random-effects-and-covariates.qmd
+    #     - 05-04-lmer-alt-representations-and-assumptions.qmd
+
+
+bibliography: ["assets/adv-modeling.bib"]
+csl: 'assets/apa.csl'
+
+format:
+  html:
+    axe: true
+    theme: 
+      - cosmo
+      - "assets/theme.scss"
+    css: ["assets/sticky-notes.css", "assets/table-styles.css"]
+    header-includes: |
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    code-copy: true
+    # code-tools:
+    #   source: true
+    #   toggle: true
+    #   caption: "Quarto Code"
+    highlight-style: "a11y-dark"
+    # df-print: paged
+    mainfont: 'Atkinson Hyperlegible'
+    fontsize: '13pt'
+    linestretch: '1.5em'
+    linkcolor: '#c10088'
+    toc: false
+    toc-title: "On This Page"
+editor: source

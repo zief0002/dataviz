@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Visualization: Summarizing and Communicating Patterns in Data",
+    "section": "",
+    "text": "Front Matter\nThe content in this “book”, as the title suggests, is related to data visualization. The content and material in this book will help you to be able to think critically about the how visual summaries of data are created and their role in the data narrative for facilitating people’s understanding about patterns and relationships in data. It will also cover the use of computational tools and methods for creating visualizations via R, a statistical computing environment. Lastly, the book also helps you think about how data visualization is a method of communication—it is one way that people communicate with data—and how we can make use of several principles for communicating in a more effective manner.",
+    "crumbs": [
+      "Front Matter"
+    ]
+  },
+  {
+    "objectID": "index.html#resources",
+    "href": "index.html#resources",
+    "title": "Data Visualization: Summarizing and Communicating Patterns in Data",
+    "section": "Resources",
+    "text": "Resources\nThis book refers to and uses several data sets throughout the text. Each of these data sets and their codebooks are available online at the book’s github repository, https://github.com/zief0002/adv-modeling/.",
+    "crumbs": [
+      "Front Matter"
+    ]
+  },
+  {
+    "objectID": "index.html#acknowledgments",
+    "href": "index.html#acknowledgments",
+    "title": "Data Visualization: Summarizing and Communicating Patterns in Data",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nMany thanks to all the students in our courses who have been through previous iterations of this material. Your feedback has been invaluable, and you are the world’s greatest copyeditors. In particular, we would like to thank Regina Lisinker and Suzanne Loch who have both been instrumental contributors to the EPSY 1261 content over the years.",
+    "crumbs": [
+      "Front Matter"
+    ]
+  },
+  {
+    "objectID": "index.html#colophon",
+    "href": "index.html#colophon",
+    "title": "Data Visualization: Summarizing and Communicating Patterns in Data",
+    "section": "Colophon",
+    "text": "Colophon\nThe book is typeset using Atkinson Hyperlegible. The color palette was generated using coolors.co.\nIcon and note ideas and prototypes by Desirée De Leon.\nArtwork\n\nData science and statistics artwork by @allison_horst",
+    "crumbs": [
+      "Front Matter"
+    ]
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Data Visualization: Summarizing and Communicating Patterns in Data",
+    "section": "License",
+    "text": "License\n\nData Visualization: Summarizing and Communicating Patterns in Data by Chelsey Legacy and Andrew Zieffler is licensed under CC BY-NC-SA 4.0",
+    "crumbs": [
+      "Front Matter"
+    ]
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "Data Visualization: Summarizing and Communicating Patterns in Data",
+    "section": "References",
+    "text": "References",
+    "crumbs": [
+      "Front Matter"
+    ]
+  },
+  {
+    "objectID": "01-00-reproducibility.html",
+    "href": "01-00-reproducibility.html",
+    "title": "Introduction to Statistical Reproducibility",
+    "section": "",
+    "text": "The first set of tools we will discuss will be related to reproducibility. Reproducibility, the idea that same results from a study should be obtained if the study is repeated, is a key part of the scientific process. Here, we are particularly concerned with statistical reproducibility. That is, given the same data and same code, two analysts should get the exact same results.\nIn practice, reproducibility means making your data and syntax available to other researchers. There are many ways to do this, but the Open Science Framework website is a fantastic option for making resources from research projects openly accessible to other researchers. Aside from the obvious advantages of minimizing fraud and bias, making research artifacts openly available also improves trust in the scientific process.\n\nPROTIP\nMaking your data and syntax available is something to consider during the planning phases of a study so that you can make this transparent in the IRB proposal.\n\nThe initial chapters of this book will address:\n\nInstalling Quarto and other computational tools;\nProject organization; and\nUsing Quarto to integrate text and computation.",
+    "crumbs": [
+      "Introduction to Statistical Reproducibility"
+    ]
+  }
+]
