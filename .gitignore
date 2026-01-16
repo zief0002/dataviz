@@ -4,6 +4,7 @@
 .Ruserdata
 .DS_Store
 .key
+.Rproj
 
 # knitr and R markdown default cache directories
 *_cache/
