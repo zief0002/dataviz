@@ -284,6 +284,30 @@ figure > figcaption.quarto-float-caption-top {
 }
 
 
+/** Buttons for hide/show solutions to exercises **/
+.solution-btn-default {
+  color: #fff;
+  background-color: #5b0013;
+  border-color: #000;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 50px;
+  margin-left: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+
+
 #references {
   margin-bottom: 5em;
 }

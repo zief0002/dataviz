@@ -1,0 +1,4 @@
+mn-colleges.csv
+
+- https://www.acceptancerate.com/minnesota
+
