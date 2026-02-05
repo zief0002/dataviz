@@ -1,4 +1,4 @@
-# Data: Questions to Ask About Data {#sec-data-questions}
+# Questions to Ask About Data {#sec-data-questions}
 
 One thing that is required in data visualization is data. Anytime you encounter data there are several questions that you should ask [@Gould:2013]. These questions not only help you become familiar with the data, but also aid in contextualizing what the data can tell you and what they can't. 
 
