@@ -65,11 +65,11 @@
 .mathnote {
   padding: 1em;
   margin: 1em 0;
-  padding-left: 100px;
+  padding-left: 30px;
   min-height: 120px;
   color: #000;
   background-color: #edeeea;
-  border: dashed 5px #869889;
+  border: solid 5px #869889;
   }  
   
   

@@ -613,7 +613,7 @@ So far, we have used raw data to create our bar charts, but is we have summary d
 pets <- read_csv("data/pet-counts.csv")
 
 # View data
-rmarkdown::paged_table(pets)
+DT::datatable(pets)
 ```
 
 To create a bar chart of these data we are going to again use the `gfcounts()` function to plot the categorical attribute (`pets_owned`) from the summary data object.
@@ -827,7 +827,7 @@ Consider the following data from the *umn-bike-amenities.csv* file.
 bike_amenities <- read_csv("data/umn-bike-amenities.csv")
 
 # View data
-rmarkdown::paged_table(bike_amenities)
+DT::datatable(bike_amenities)
 ```
 
 Imagine that this has been imported into a data object called `bike_amenities`. Also suppose we wanted to create a bar chart of the `campus` attribute, which provides the campus location (East Bank, West Bank, or St. Paul) of the bike amenities in the data.

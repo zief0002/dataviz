@@ -15,10 +15,8 @@ library(tidyverse)
 mn <- read_csv("data/mn-colleges.csv")
 
 # View data
-rmarkdown::paged_table(mn)
+DT::datatable(mn)
 ```
-
-*Note.* You can use the arrows at the top of the printed data to look at additional attributes and the page links at the bottom of the data to view additional cases.
 
 
 In these data each case is an institution of higher education in the state of Minnesota. There are 33 institutions in our sample. There are several quantitative attributes in the data, including: the number of applicants, the number of applicants who were admitted, and the acceptance rate. We will focus on the acceptance rate attribute in this chapter.

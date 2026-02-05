@@ -24,7 +24,7 @@ book:
     #     - 01-02-introduction-to-rmd.qmd
     - part: 02-00-data.qmd
       chapters:
-        - 02-01-data-structure-and-attributes.qmd
+        - 02-01-questions-to-ask-about-data.qmd
     - part: 03-00-visualizing-and-describing-univariate-data.qmd
       chapters:
         - 03-01-visualizing-quantitative-attributes.qmd
@@ -46,7 +46,7 @@ book:
     #     - 05-04-lmer-alt-representations-and-assumptions.qmd
 
 lightbox: "auto"
-bibliography: ["assets/adv-modeling.bib"]
+bibliography: ["assets/epsy-1261.bib"]
 csl: 'assets/apa.csl'
 include-in-header: 'assets/epsy-1261.js'
 
