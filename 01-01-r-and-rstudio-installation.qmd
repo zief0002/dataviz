@@ -14,20 +14,8 @@ You will also need a spreadsheet application for interacting with and creating d
 
 You will also need to install a helper tool: Command Line Tools (for Mac users) and Rtools (for PCs). This will be necessary to build some of the R packages that we will use in the course.
 
-
 Below we provide instruction for installing each of these applications.
 
-<!-- R and RStudio Desktop.   -->
-
-<!-- ```{r} -->
-<!-- #| label: fig-workflow -->
-<!-- #| fig-cap: "Workflow for using R: Once both applications are installed on you computer, you will only interact with R through RStudio." -->
-<!-- #| fig-alt: "Workflow for using R: Once both applications are installed on you computer, you will only interact with R through RStudio." -->
-<!-- #| echo: false -->
-<!-- #| out-width: "60%" -->
-
-<!-- knitr::include_graphics("figs/01-01-rstudio-and-r.png") -->
-<!-- ``` -->
 
 <br />
 

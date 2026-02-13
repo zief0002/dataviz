@@ -25,6 +25,7 @@ book:
     - part: 02-00-data.qmd
       chapters:
         - 02-01-questions-to-ask-about-data.qmd
+        - 02-02-importing-data.qmd
     - part: 03-00-visualizing-and-describing-univariate-data.qmd
       chapters:
         - 03-01-visualizing-quantitative-attributes.qmd

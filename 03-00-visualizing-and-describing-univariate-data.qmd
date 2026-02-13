@@ -6,10 +6,6 @@ The chapters in this section will introduce methods for visualizing and describi
 <br />
 
 
-<!-- ## Goals for Summarization and Visualization -->
-
-<!-- Data scientists and statisticians visualize data and compute numerical summaries to explore and understand data. In addition to visualizing distributions of data, it is common to also summarize certain feature of the data using numbers. (For example, the mean is one summarization of a distribution of quantitative data.) Together visualizing and summarizing data can help analysts identify features in the data such as typical or extreme observations, and also describe and explore the variation in the data. Data exploration is an important first step in any statistical analysis.  -->
-
 
 ## College Scorecard Data
 
