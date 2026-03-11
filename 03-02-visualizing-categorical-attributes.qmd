@@ -356,29 +356,7 @@ One issue in our plot is that some of the data labels overlap each other. This m
 
 ## Using R to Create a Horizontal Bar Chart
 
-To create a horizontal bar chart, we are going to modify our original plot by using the `gf_refine()` function. We will connect the original `gf_counts()` function and the `gf_refine()` function together using the `|>` operator. Connecting functions together is called *piping* and the operator is referred to as the pipe. So the bones of the code will look like this:
-
-```{r}
-#| eval: false
-
-gf_counts() |> gf_refine()
-```
-
-
-Good coding practice suggests that any modifications to the plot go on a separate line of code; this makes it easier to understand the code and also makes it easier for humans to read. The pipe operator is left on the same line of code as the original  `gf_counts()` function. Then the `gf_refine()` function is placed on the subsequent line of code and indented. (The indentation helps humans see that this is all part of the same plot.) Here is what that looks like:
-
-
-
-```{r}
-#| eval: false
-
-gf_counts() |>
-  gf_refine()
-```
-
-
-
-The modification we want to make is that instead of having vertical bars (the data is plotted along the *x*-axis and counts are on the *y*-axis), we want horizontal bars (the data is plotted along the *y*-axis and counts are on the *x*-axis). This require us to flip the coordinates of the original plot. To do this, we will place the `coord_flip()` function inside the `gf_refine()` function. The syntax to create a horizontal bar chart of the building type data is shown below.
+To create a horizontal bar chart, we move the attribute name (`type`) to the left-hand side of the tilde operator in `gf_counts()`. Because R requires us to always have something on the right-hand side of the tilde operator, we will add a dot (`.`) to the right-hand side of the tilde operator. The syntax to create a horizontal bar chart of the building type data is shown below.
 
 
 ```{r}
@@ -386,11 +364,10 @@ The modification we want to make is that instead of having vertical bars (the da
 #| fig-cap: "Horizontal bar chart of the number of each building type owned by UMN. This plot includes a border and fill color."
 #| fig-alt: "Horizontal Bar chart of the number of each building type owned by UMN. This plot includes a border and fill color."
 
-gf_counts(~type, data = umn, color = "black", fill = "maroon") |>
-  gf_refine(coord_flip())
+gf_counts(type ~ ., data = umn, color = "black", fill = "maroon")
 ```
 
-Notice that by putting the data labels on the *y*-axis, we avois having the labels overlapping each other! This makes our plot easier for others to understand by removing the cognitive load associated with overlapping labels.
+Notice that by putting the data labels on the *y*-axis, we avoid having the labels overlapping each other! This makes our plot easier for others to understand by removing the cognitive load associated with overlapping labels.
 
 
 ## Using R to Create a Bar Chart of Proportions
@@ -403,9 +380,13 @@ To create a bar chart that summarizes the proportion of each category (rather th
 #| fig-cap: "Horizontal bar chart of the proportion of each building type owned by UMN. This plot includes a border and fill color."
 #| fig-alt: "Horizontal bar chart of the proportion of each building type owned by UMN. This plot includes a border and fill color."
 
-gf_props(~type, data = umn, color = "black", fill = "maroon") |>
-  gf_refine(coord_flip())
+gf_props(~type, data = umn, color = "black", fill = "maroon")
 ```
+
+:::fyi
+The function `gf_props()` can't be used in the horizontal orientation currently.
+:::
+
 
 <br />
 
@@ -419,8 +400,7 @@ To create a bar chart summarizing the percentage of each building type, we use t
 #| fig-cap: "Horizontal bar chart of the percentage of each building type owned by UMN. This plot includes a border and fill color."
 #| fig-alt: "Horizontal bar chart of the percentage of each building type owned by UMN. This plot includes a border and fill color."
 
-gf_percents(~type, data = umn, color = "black", fill = "maroon") |>
-  gf_refine(coord_flip())
+gf_percents(type ~ ., data = umn, color = "black", fill = "maroon")
 ```
 
 <br />
@@ -480,7 +460,7 @@ gf_counts(~pet_owned, data = pets)
 ```
 
 
-This creates a bar chart of the pets owned attribute. In this data there is literally one word that sdays "cat", one that says "dog", one that says "fish", and one that says "turtle". So the resulting bar chart creates a bar for each of these and all of them have a count (bar height) of 1. 
+This creates a bar chart of the pets owned attribute. In this data there is literally one word that says "cat", one that says "dog", one that says "fish", and one that says "turtle". So the resulting bar chart creates a bar for each of these and all of them have a count (bar height) of 1. 
 
 :::fyi
 **IMPORTANT**
@@ -504,7 +484,7 @@ To create the bar chart of the summarized data, we can use the following code:
 gf_counts(~pet_owned, data = pets, y = ~number, stat = "identity")
 ```
 
-As with other bar charts, we can also add border color, bar fill, and flip the coordinates to make this a horizontal bar chart.
+As with other bar charts, we can also add border color, bar fill, and make it a horizontal bar chart. (Note that in this case the count will be on the *x*-axis instead of the *y*-axis, so we need to assign the `number` attribute to `x=` rather than `y=`.)
 
 
 ```{r}
@@ -512,8 +492,7 @@ As with other bar charts, we can also add border color, bar fill, and flip the c
 #| fig-cap: "Horizontal bar chart of the `pets_owned` attribute from the summary data. The counts from the `number` column are being used to indicate the bar length."
 #| fig-alt: "Horizontal bar chart of the `pets_owned` attribute from the summary data. The counts from the `number` column are being used to indicate the bar length."
 
-gf_counts(~pet_owned, data = pets, y = ~number, stat = "identity", color = "black", fill = "maroon") |>
-  gf_refine(coord_flip())
+gf_counts(pet_owned ~ ., data = pets, x = ~number, stat = "identity", color = "black", fill = "maroon")
 ```
 
 <br />
@@ -527,11 +506,10 @@ One pro coding tip is to pay attention to how long the lines of code are that yo
 ```{r}
 #| eval: false
 
-gf_counts(~pet_owned, data = pets, 
+gf_counts(pet_owned ~ ., data = pets, 
           y = ~number, stat = "identity", 
           color = "black", fill = "maroon"
-          ) |>
-  gf_refine(coord_flip())
+          )
 ```
 
 
@@ -545,14 +523,13 @@ Another way to break up the code that data scientists often use is to place one 
 #| eval: false
 
 gf_counts(
-  ~pet_owned, 
+  pet_owned ~ ., 
   data = pets, 
   y = ~number, 
   stat = "identity", 
   color = "black", 
   fill = "maroon"
-  ) |>
-  gf_refine(coord_flip())
+  )
 ```
 
 Both manners of breaking up the code are legitimate and make the code easier to read and understand for humans. It is a coding choice that you get to make. The important thing is that you make your code easier for humans to read!
@@ -606,14 +583,13 @@ The bar heights imply that there is a low amount of variability (diversity) in t
 </div>
 
 
-4. Write out the syntax to create a bar chart of the percentages for the `campus` attribute. Also color the bar borders black and fill the bars with yellow. Lastly, flip the coordinates so that this bar chart is horizontal rather than vertical.
+4. Write out the syntax to create a horizontal bar chart of the percentages for the `campus` attribute. Also color the bar borders black and fill the bars with yellow. 
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-04');">Show/Hide Solution</button>
 
 <div id="exercise_03-01-04" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
-gf_percents(~campus, data = bike_amenities, color = "black", fill = "yellow") |>
-  gf_refine(coord_flip())
+gf_percents(campus ~ ., data = bike_amenities, color = "black", fill = "yellow")
 ```
 </div>
 
