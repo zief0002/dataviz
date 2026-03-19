@@ -289,7 +289,7 @@ Here is how we might describe the distribution of acceptance rates:
 
 ## Using R to Create Histograms
 
-To create a histogram or a density plot, we will use functions from the `{ggfomula}` library. As a reminder, in the first code chunk of your RMD document, load the `{tidyverse}` and `{ggformula}` libraries. Also use the `read_csv()` function to import the *mn-colleges.csv* data and assign the data into an object called `mn`. You also might want to view the data to ensure that it imported into the RMD correctly. (Don't forget to add code comments as well!)
+To create a histogram or a density plot, we will use functions from the `{ggfomula}` library. As a reminder, in the first code chunk of your QMD document, load the `{tidyverse}` and `{ggformula}` libraries. Also use the `read_csv()` function to import the *mn-colleges.csv* data and assign the data into an object called `mn`. You also might want to view the data to ensure that it imported into the QMD correctly. (Don't forget to add code comments as well!)
 
 
 ```{r}
@@ -308,7 +308,7 @@ mn
 ```
 
 
-To create a histogram of the acceptance rates using the `gf_histogram()` function, we will first create a new code chunk in your RMD document where you want the histogram to appear. Inside the code chunk we will add the following syntax:
+To create a histogram of the acceptance rates using the `gf_histogram()` function, we will first create a new code chunk in your QMD document where you want the histogram to appear. Inside the code chunk we will add the following syntax:
 
 ```{r}
 #| eval: false
@@ -319,7 +319,7 @@ gf_histogram(~accept_rate, data = mn)
 
 
 - The first argument is a formula using the tilde operator (`~`) that identifies the attribute to be plotted. In our example, the name of the attribute is `accept_rate`. (Make sure you use the exact name of the attribute, including correct case and spelling!)
-- The second argument, `data =`, specifies the data object that was assigned on data import. Earlier in the RMD file you should have imported the *mn-colleges.csv* file and assigned it into an object. In our example, we assigned it into an object called `mn`.
+- The second argument, `data =`, specifies the data object that was assigned on data import. Earlier in the QMD file you should have imported the *mn-colleges.csv* file and assigned it into an object. In our example, we assigned it into an object called `mn`.
 
 This should result in the following histogram:
 

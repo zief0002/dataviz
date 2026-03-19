@@ -60,7 +60,7 @@ In data visualizations, the caption is typically used to indicate the source of 
 
 ## Adding Labels to a Plot in R
 
-To illustrate how we can add labels to a plot, we are going to re-create the horizontal bar chart of the number of UMN buildings classified for each type of primary use (e.g., parking, residential). As a reminder, in the first code chunk of your RMD document, load the `{tidyverse}` and `{ggformula}` libraries. Also use the `read_csv()` function to import the *umn-buildings.csv* data and assign the data into an object called `umn`. You also might want to view the data to ensure that it imported into the QMD document correctly. (Don't forget to add code comments as well!)
+To illustrate how we can add labels to a plot, we are going to re-create the horizontal bar chart of the number of UMN buildings classified for each type of primary use (e.g., parking, residential). As a reminder, in the first code chunk of your QMD document, load the `{tidyverse}` and `{ggformula}` libraries. Also use the `read_csv()` function to import the *umn-buildings.csv* data and assign the data into an object called `umn`. You also might want to view the data to ensure that it imported into the QMD document correctly. (Don't forget to add code comments as well!)
 
 
 ```{r}
