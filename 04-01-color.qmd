@@ -386,26 +386,13 @@ gf_boxplot(~accept_rate, data = mn, color = "#FFB71E", fill = "#7A0019")
 
 ## Exercises: Your Turn {-}
 
-<!-- Consider the following data visualization that shows the amount of playing time for each of the Minnesota Lynx players for the 2025 regular season.  -->
-
-<!-- ```{r} -->
-<!-- #| label: fig-mn-lynx-playing-time -->
-<!-- #| fig-caption: "A heatmap showing the amount of playing time for each of the Minnesota Lynx players for the 2025 regular season." -->
-<!-- #| fig-alt: "A heatmap showing the amount of playing time for each of the Minnesota Lynx players for the 2025 regular season." -->
-<!-- #| out-width: "90%" -->
-<!-- #| echo: false -->
-
-<!-- knitr::include_graphics("figs/04-03-mn-lynx-playing-time.png") -->
-<!-- ``` -->
-
-
 
 1. The primary gold color of the University of Minnesota has an RGB notation of (255, 204, 51). Convert this to binary notation. Show your work.
 
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-03-01');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-01-01');">Show/Hide Solution</button>
 
-<div id="exercise_03-03-01" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_04-01-01" style="display:none; margin: -40px 0 40px 40px;">
 **R channel**
 
 $$
@@ -456,9 +443,9 @@ So the binary notation for (255, 204, 51) is 11111111 11001100 00110011.
 
 2. The primary gold color of the University of Minnesota has an RGB notation of (255, 204, 51). Convert this to HEX notation. Show your work.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-03-02');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-01-02');">Show/Hide Solution</button>
 
-<div id="exercise_03-03-02" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_04-01-02" style="display:none; margin: -40px 0 40px 40px;">
 **R channel**
 
 $$
@@ -499,9 +486,9 @@ So the HEX notation for (255, 204, 51) is #FFCC33.
 
 3. The HEX notation for the University of Minnesota's secondary light gold is #FFB71E. Convert this to RGB notation. Show your work.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-03-03');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-01-03');">Show/Hide Solution</button>
 
-<div id="exercise_03-03-03" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_04-01-03" style="display:none; margin: -40px 0 40px 40px;">
 **R channel**
 
 $$
@@ -543,9 +530,9 @@ $$
 
 4. Use the *mn-colleges.csv* data to create a histogram of the acceptance rates. Color the interior of the bars using #CBA67B and the bar borders with #695645.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-03-04');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-01-04');">Show/Hide Solution</button>
 
-<div id="exercise_03-03-04" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_04-01-04" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 #| label: fig-hist-umn
 #| fig-cap: "Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota."
@@ -562,3 +549,4 @@ gf_histogram(~accept_rate, data = mn, color = "#695645", fill = "#CBA67B")
 <br />
 
 ## References {-}
+

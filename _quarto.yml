@@ -30,12 +30,10 @@ book:
       chapters:
         - 03-01-visualizing-quantitative-attributes.qmd
         - 03-02-visualizing-categorical-attributes.qmd
-    #     - 03-04-logarithmic-transformations-outcome.qmd
-    #     - 03-05-rule-of-the-bulge.qmd
     - part: 04-00-plot-enhancement.qmd
       chapters:
-        - 03-03-color.qmd
-        - 04-01-labels.qmd
+        - 04-01-color.qmd
+        - 04-02-labels.qmd
         # - 04-02-color.qmd
     #     - 04-03-more-logistic-regression.qmd
     # #     - 04-04-assumptions.qmd

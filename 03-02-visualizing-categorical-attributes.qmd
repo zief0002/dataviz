@@ -15,7 +15,7 @@ Imagine you have surveyed 10 pet owners about the type of pet they own.^[To keep
 #| fig-alt: "Data collected from 10 pet owners about the type of pet the own."
 #| echo: false
 
-knitr::include_graphics("figs/04-01-pet-sample.png")
+knitr::include_graphics("figs/03-02-01-pet-sample.png")
 ```
 
 Our goal in exploratory analysis is to describe the data. One way of describing the data is to list all of the values. For example here we could say the sample included a turtle, a fish, a cat, a dog, another dog, another fish, another cat, another cat, another cat, and another dog. While this is an accurate description, it isn't very generalizable. (Imagine trying to describe the data from 1000 pet owners or 10,000 pet owners!)
@@ -47,7 +47,7 @@ To visualize categorical attributes we typically use a **bar chart**. A bar char
 #| fig-alt: Bar chart indicating the counts of each type of pet owned.
 #| echo: false
 
-knitr::include_graphics("figs/04-02-pet-barchart.png")
+knitr::include_graphics("figs/03-02-02-pet-barchart.png")
 ```
 
 
@@ -61,7 +61,7 @@ Sometimes the axes in the bar chart are transposed; categories are placed on the
 #| fig-alt: Horizontal bar chart indicating the counts of each type of pet owned. In this plot the categories are placed on the *y*-axis and the scale on the the *x* axis indicates the number of pet owners for each pet type.
 #| echo: false
 
-knitr::include_graphics("figs/04-02-pet-horz-barchart.png")
+knitr::include_graphics("figs/03-02-03-pet-horz-barchart.png")
 ```
 
 
@@ -145,7 +145,7 @@ We can also create a bar chart that visualizes the proportions rather than the c
 #| fig-alt: Horizontal bar chart indicating the proportion of each type of pet owned.
 #| echo: false
 
-knitr::include_graphics("figs/04-03-pet-horz-barchart-prop.png")
+knitr::include_graphics("figs/03-02-04-pet-horz-barchart-prop.png")
 ```
 
 
@@ -220,7 +220,7 @@ We can also create a bar chart using percentages. @fig-pet-barchart4 shows a hor
 #| fig-alt: Horizontal bar chart indicating the percentage of each type of pet owned.
 #| echo: false
 
-knitr::include_graphics("figs/04-03-pet-horz-barchart-perc.png")
+knitr::include_graphics("figs/03-02-05-pet-horz-barchart-perc.png")
 ```
 
 <br />
@@ -259,8 +259,8 @@ With quantitative attributes we described the distribution using shape, center (
 #|     - Original bar chart of the number of pets.
 #|     - Another possible bar chart of the number of pets.
 
-knitr::include_graphics("figs/04-02-pet-barchart.png")
-knitr::include_graphics("figs/04-02-pet-barchart2.png")
+knitr::include_graphics("figs/03-02-02-pet-barchart.png")
+knitr::include_graphics("figs/03-02-06-pet-barchart2.png")
 ```
 
 Because the attribute being plotted on the *x*-axis is categorical, the order we put it in is irrelevant. Cats could be the first bar. dogs could be the first bar. Or fish or turtles. (This is quite different from a histogram of a quantitative attribute in which the values being plotted (numbers) have a distinct order.) Depending on which order we put the pets in the plot, the shape would change. That is why we cannot describe the shape of a categorical attribute.
@@ -285,8 +285,8 @@ The way we described variation for a quantitative attribute---describing the ove
 #|     - Original bar chart of the number of pets.
 #|     - Another possible bar chart of the number of pets.
 
-knitr::include_graphics("figs/04-07-low-variability.png")
-knitr::include_graphics("figs/04-08-high-variability.png")
+knitr::include_graphics("figs/03-02-07-low-variability.png")
+knitr::include_graphics("figs/03-02-08-high-variability.png")
 
 ```
 
@@ -427,8 +427,8 @@ Sometimes you are provided with summaries of data rather than the actual data it
 #|     - The raw data.
 #|     - The summary data.
 
-knitr::include_graphics("figs/04-09-raw-pet-data.png")
-knitr::include_graphics("figs/04-10-summary-pet-data.png")
+knitr::include_graphics("figs/03-02-09-raw-pet-data.png")
+knitr::include_graphics("figs/03-02-10-summary-pet-data.png")
 ```
 
 
@@ -564,9 +564,9 @@ This is raw data. The attribute `campus` includes data for each of the cases and
 
 2. Write out the syntax to create a bar chart of the counts for the `campus` attribute.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-00-02');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-02');">Show/Hide Solution</button>
 
-<div id="exercise_03-01-00-02" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_03-02-02" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 #| eval: false
 gf_counts(~campus, data = bike_amenities)
@@ -576,18 +576,18 @@ gf_counts(~campus, data = bike_amenities)
 
 3. Describe the distribution of the bar chart you created in Exercise #2.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-03');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-03');">Show/Hide Solution</button>
 
-<div id="exercise_03-01-03" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_03-02-03" style="display:none; margin: -40px 0 40px 40px;">
 The bar heights imply that there is a low amount of variability (diversity) in the bike amenity locations. The East Bank has the most bike amenities of the three campus locations. Both the West Bank and St. Paul campus have a similar number of bike amenities, but way fewer amenities than the East Bank.
 </div>
 
 
 4. Write out the syntax to create a horizontal bar chart of the percentages for the `campus` attribute. Also color the bar borders black and fill the bars with yellow. 
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-04');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-04');">Show/Hide Solution</button>
 
-<div id="exercise_03-01-04" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_03-02-04" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 gf_percents(campus ~ ., data = bike_amenities, color = "black", fill = "yellow")
 ```

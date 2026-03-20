@@ -11,7 +11,7 @@ This chapter will focus on how we can add labels to a plot. Labels include not o
 #| out-width: "90%"
 #| echo: false
 
-knitr::include_graphics("figs/04-01-01-college-cost.png")
+knitr::include_graphics("figs/04-02-01-college-cost.png")
 ```
 
 <br />
@@ -32,7 +32,7 @@ As a second example, consider @fig-adam-sandler-movies.
 #| out-width: "90%"
 #| echo: false
 
-knitr::include_graphics("figs/04-01-01-adam-sandler-annotated.png")
+knitr::include_graphics("figs/04-02-02-adam-sandler-annotated.png")
 ```
 
 This visualization examines the relationship between the Rotten Tomatoes rating and box office gross for 28 Adam Sandler movies. In this example the title provides the main finding from the data analysis, and the subtitle includes more specific contextual information about the analysis undertaken.
@@ -216,7 +216,7 @@ Consider the following data visualization that shows the amount of playing time 
 #| out-width: "90%"
 #| echo: false
 
-knitr::include_graphics("figs/04-03-mn-lynx-playing-time.png")
+knitr::include_graphics("figs/04-02-03-mn-lynx-playing-time.png")
 ```
 
 
@@ -232,9 +232,9 @@ In this visualization it is fairly obvious from the title and subtitle what the 
 
 2. Write the syntax you would add into the `gf_labs()` function if you were creating this plot using R.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-01-00-02');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-02-02');">Show/Hide Solution</button>
 
-<div id="exercise_04-01-00-02" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_04-02-02" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 #| eval: false
 
@@ -268,9 +268,9 @@ Imagine that this has been imported into a data object called `bike_amenities`. 
 
 3. Write out the syntax to create a horizontal bar chart of the `campus` attribute. Also color the bar borders black and fill the bars with yellow. Lastly, add labels to help readers better interpret the plot.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-04');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-02-03');">Show/Hide Solution</button>
 
-<div id="exercise_03-01-04" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_04-02-03" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 gf_counts(campus ~ ., data = bike_amenities, color = "black", fill = "yellow") |>
   gf_labs(

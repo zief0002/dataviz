@@ -35,7 +35,7 @@ The first visualization we will examine is a dot plot. A dot plot is a simple vi
 #| out-width: "80%"
 #| echo: false
 
-knitr::include_graphics("figs/03-01-dotplot.png")
+knitr::include_graphics("figs/03-01-01-dotplot.png")
 ```
 
 Each dot is a different institution of higher education. For example, the dot on the far left of the plot is Carleton College (which has an acceptance rate of 19.1%). Looking at this plot, we can see that:
@@ -57,7 +57,7 @@ A more common visualization used for quantitative attributes is the histogram. T
 #| out-width: "80%"
 #| echo: false
 
-knitr::include_graphics("figs/03-02-binned-dotplot.png")
+knitr::include_graphics("figs/03-01-02-binned-dotplot.png")
 ```
 
 Then a bar is drawn for each bin. The height of this bar indicates the number (count) of cases in that bin.
@@ -369,7 +369,7 @@ There are 657 different color names that R knows. These are depicted in @fig-nam
 #| out-width: "100%"
 #| echo: false
 
-knitr::include_graphics("figs/03-03-r-colors.png")
+knitr::include_graphics("figs/03-01-03-r-colors.png")
 ```
 
 <br />
@@ -473,9 +473,9 @@ Deciding between using a histogram or density plot to visualize a quantitative a
 
 1. Create a histogram of the number of applicants (`applicants`) for the 33 institutions of higher learning in Minnesota. Color the bin lines of the histogram maroon and color the bars gold.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-01');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-01');">Show/Hide Solution</button>
 
-<div id="exercise_03-02-01" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_03-01-01" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 #| fig-alt: "Histogram of the number of applicants for the 33 institutions of higher learning in Minnesota."
 gf_histogram(~applicants, data = mn, color = "maroon", fill = "gold")
@@ -485,9 +485,9 @@ gf_histogram(~applicants, data = mn, color = "maroon", fill = "gold")
 
 2. Create another histogram of the number of applicants (`applicants`) for the 33 institutions of higher learning in Minnesota. But this time use only 15 bins. Color the bin lines of the histogram black and pick a fun color to fill the bars.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-02');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-02');">Show/Hide Solution</button>
 
-<div id="exercise_03-02-02" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_03-01-02" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 #| fig-alt: "Histogram of the number of applicants for the 33 institutions of higher learning in Minnesota."
 gf_histogram(~applicants, data = mn, bins = 15, color = "black", fill = "mediumpurple1")
@@ -516,18 +516,18 @@ gf_histogram(~applicants, data = mn,
   scale_y_continuous(name = "Count", breaks = seq(0, 15, by = 1))
 ```
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-03');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-03');">Show/Hide Solution</button>
 
-<div id="exercise_03-02-03" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_03-01-03" style="display:none; margin: -40px 0 40px 40px;">
 There are 13 institutions of higher learning in Minnesota that got between 0 and 2,000 applicants.
 </div>
 
 
 4. Create a density plot of the number of applicants for the 33 institutions of higher learning in Minnesota. Fill the density plot with a color of your choice. Also color the border with a color of your choice.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-04');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-04');">Show/Hide Solution</button>
 
-<div id="exercise_03-02-04" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_03-01-04" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 #| fig-alt: "Density plot of the number of applicants for the 33 institutions of higher learning in Minnesota."
 gf_density(~applicants, data = mn, color = "royalblue4", fill = "skyblue")
@@ -538,9 +538,9 @@ gf_density(~applicants, data = mn, color = "royalblue4", fill = "skyblue")
 
 5. Use the density plot to describe the distribution of the number of applicants for the 33 institutions of higher learning in Minnesota. Be sure to describe the shape, center, and variation of this distribution. Also be sure to incorporate the context into your description.
 
-<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-02-05');">Show/Hide Solution</button>
+<button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-05');">Show/Hide Solution</button>
 
-<div id="exercise_03-02-05" style="display:none; margin: -40px 0 40px 40px;">
+<div id="exercise_03-01-05" style="display:none; margin: -40px 0 40px 40px;">
 The distribution of the number of applicants for the 33 institutions of higher learning in Minnesota is unimodal and right skewed. The typical number of applicants for these institutions is around 4,000. There are several institutions that get far fewer applicants (less than 2,000 students) and one that gets around 41,000 applicants! Most institutions get between 2,000 and 8,000 applicants.
 </div>
 
