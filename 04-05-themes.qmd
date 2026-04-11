@@ -46,9 +46,9 @@ Aside from being associated with the brand of a company or creator, the plot bac
 library(tidyverse)
 source("scripts/theme_dark.R")
 
-mn = read_csv("data/airbnb.csv")
+airbnb = read_csv("data/airbnb.csv")
 
-ggplot(data = mn, aes(x = accommodates, y = price)) +
+ggplot(data = airbnb, aes(x = accommodates, y = price)) +
   geom_point(color = "#ebbed3") +
   labs(
     x = "Number of people Airbnb property can accommodate",
@@ -57,7 +57,7 @@ ggplot(data = mn, aes(x = accommodates, y = price)) +
   theme_light()
 
 
-ggplot(data = mn, aes(x = accommodates, y = price)) +
+ggplot(data = airbnb, aes(x = accommodates, y = price)) +
   geom_point(color = "#ebbed3") +
   labs(
     x = "Number of people Airbnb property can accommodate",
@@ -626,38 +626,7 @@ ggplot(data = bls, aes(x = med_weeklypay_women)) +
 </div>
 
 
-<!-- 2. Write the syntax you would add into the `gf_labs()` function if you were creating this plot using R. -->
 
-<!-- <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-01-00-02');">Show/Hide Solution</button> -->
-
-<!-- <div id="exercise_04-01-00-02" style="display:none; margin: -40px 0 40px 40px;"> -->
-
-<!-- </div> -->
-
-
-
-<!-- Consider the following data from the *umn-bike-amenities.csv* file.  -->
-
-<!-- ```{r} -->
-<!-- #| label: import-bike-amenities-data -->
-<!-- #| message: false -->
-
-<!-- # Import data -->
-<!-- bike_amenities <- readr::read_csv("data/umn-bike-amenities.csv") -->
-
-<!-- # View data -->
-<!-- DT::datatable(bike_amenities) -->
-<!-- ``` -->
-
-<!-- Imagine that this has been imported into a data object called `bike_amenities`. Also suppose we wanted to create a bar chart of the `campus` attribute, which provides the campus location (East Bank, West Bank, or St. Paul) of the bike amenities in the data. -->
-
-<!-- 3. Write out the syntax to create a horizontal bar chart of the `campus` attribute. Also color the bar borders black and fill the bars with yellow. Lastly, add labels to help readers better interpret the plot. -->
-
-<!-- <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_03-01-04');">Show/Hide Solution</button> -->
-
-<!-- <div id="exercise_03-01-04" style="display:none; margin: -40px 0 40px 40px;"> -->
-
-<!-- </div> -->
 
 
 
