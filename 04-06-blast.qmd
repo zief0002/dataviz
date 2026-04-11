@@ -222,7 +222,7 @@ ggplot(data = bls, aes(x = med_weeklypay_women)) +
     "text",
     x = 2500, y = 44,
     label = ">$100k/year",
-    family = "Roboto COndensed",
+    family = "Roboto Condensed",
     color = "#616161"
     )
 ```
@@ -262,7 +262,7 @@ ggplot(data = bls, aes(x = med_weeklypay_women)) +
     "text",
     x = 2500, y = 44,
     label = ">$100k/year",
-    family = "Roboto COndensed",
+    family = "Roboto Condensed",
     color = "#616161"
     ) +
   annotate(
