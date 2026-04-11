@@ -34,9 +34,10 @@ book:
       chapters:
         - 04-01-color.qmd
         - 04-02-labels.qmd
-        # - 04-02-color.qmd
-    #     - 04-03-more-logistic-regression.qmd
-    # #     - 04-04-assumptions.qmd
+        - 04-03-annotations.qmd
+        - 04-04-scales.qmd
+        - 04-05-themes.qmd
+        - 04-06-blast.qmd
     # - part: 05-00-modeling-nonindependence.qmd
     #   chapters:
     #     - 05-01-introduction-to-mixed-effects-models.qmd

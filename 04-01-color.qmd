@@ -330,7 +330,7 @@ There are many online converters for translating between RGB and HEX. While you 
 
 ## Using HEX Colors in R
 
-To illustrate how to use HEX colors in our data visualizations, we will work with the *mn-colleges.csv* data. In the first code chunk of your QMD document, load the `{tidyverse}` and `{ggformula}` libraries. Also use the `read_csv()` function to import the *mn-colleges.csv* data and assign the data into an object called `mn`. You also might want to view the data to ensure that it imported into the QMD correctly. (Don't forget to add code comments as well!)
+To illustrate how to use HEX colors in our data visualizations, we will work with the *mn-colleges.csv* data. In the first code chunk of your QMD document, load the `{tidyverse}` library and use the `read_csv()` function to import the *mn-colleges.csv* data and assign the data into an object called `mn`. (You also might want to view the data to ensure that it imported into the QMD correctly.) Don't forget to add code comments as well!
 
 
 ```{r}
@@ -338,7 +338,6 @@ To illustrate how to use HEX colors in our data visualizations, we will work wit
 #| message: false
 
 # Load libraries
-library(ggformula)
 library(tidyverse)
 
 # Import data
@@ -346,39 +345,30 @@ mn <- read_csv("data/mn-colleges.csv")
 ```
 
 
-We will create a boxplot of the acceptance rates using the `gf_boxplot()` function in a new code chunk in the QMD document. Inside the code chunk we will add the following syntax:
+We will create a histogram of the acceptance rates using the `geom_histogram()` function in a new code chunk in the QMD document. Inside the code chunk we will add the following syntax:
 
 ```{r}
 #| eval: false
 
-gf_boxplot(~accept_rate, data = mn)
+ggplot(data = mn, aes(x = accept_rate)) +
+  geom_histogram()
 ```
 
 We can use HEX colors in the `color=` and `fill=` arguments. Similar to the color names we used, the HEX codes need to be enclosed in quotation marks. We also need to include the hashtag (`#`) to inform R that the color is in HEX notation. For example, to color the interior of our boxplot using the primary UMN maroon (`#7A0019`) and the border using the secondary dark gold (`#FFB71E`), we use:
 
 ```{r}
 #| label: fig-bp-umn
-#| fig-cap: "Boxplot of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN."
-#| fig-alt: "Boxplot of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN."
+#| fig-cap: "Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN."
+#| fig-alt: "Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN."
 #| out-width: "70%"
+#| message: false
 
-gf_boxplot(~accept_rate, data = mn, color = "#FFB71E", fill = "#7A0019")
+ggplot(data = mn, aes(x = accept_rate)) +
+  geom_histogram(
+    color = "#FFB71E", 
+    fill = "#7A0019"
+  )
 ```
-
-
-<!-- ### Colorblind -->
-
-<!-- About 8% of men and 1% of women have some form of color impairment. Most people with color deficiencies aren't aware that the colors they perceive as identical appear different to other people. Most still perceive color, but certain colors are transmitted to the brain differently. -->
-
-<!-- The most common impairment is red and green dichromatism which causes red and green to appear indistinguishable. Other impairments affect other color pairs. People with total color blindness are very rare. -->
-
-
-
-
-
-
-
-
 
 
 <br />
@@ -528,19 +518,23 @@ $$
 
 
 
-4. Use the *mn-colleges.csv* data to create a histogram of the acceptance rates. Color the interior of the bars using #CBA67B and the bar borders with #695645.
+4. Use the *mn-colleges.csv* data to create a density plot of the acceptance rates. Color the interior of the plot using #CBA67B and the border with #695645.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-01-04');">Show/Hide Solution</button>
 
 <div id="exercise_04-01-04" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 #| label: fig-hist-umn
-#| fig-cap: "Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota."
-#| fig-alt: "Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota."
+#| fig-cap: "Density plot of acceptance rates for the 33 institutions of higher learning in Minnesota."
+#| fig-alt: "Density plot of acceptance rates for the 33 institutions of higher learning in Minnesota."
 #| out-width: "70%"
 #| message: false
 
-gf_histogram(~accept_rate, data = mn, color = "#695645", fill = "#CBA67B")
+ggplot(data = mn, aes(x = accept_rate)) +
+  geom_density(
+    color = "#695645", 
+    fill = "#CBA67B"
+  )
 ```
 </div>
 

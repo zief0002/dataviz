@@ -8,7 +8,6 @@ This chapter will focus on the visualization and description of quantitative att
 #| echo: false
 
 # Load libraries
-library(ggformula)
 library(tidyverse)
 
 # Import data
@@ -69,7 +68,12 @@ Then a bar is drawn for each bin. The height of this bar indicates the number (c
 #| out-width: "80%"
 #| echo: false
 
-gf_histogram(~accept_rate, data = mn, breaks = seq(0, 100, by = 20), color = "black", fill = "#7A0019", alpha = 0.8) +
+ggplot(data = mn, (aes(x = accept_rate))) +
+  geom_histogram(
+    breaks = seq(0, 100, by = 20), 
+    color = "black", fill = "#7A0019", 
+    alpha = 0.8
+    ) +
   scale_x_continuous(name = "Acceptance Rate (in %)", breaks = seq(0, 100, by = 20)) +
   scale_y_continuous(name = "Count", breaks = seq(0, 20, by = 5))
 ```
@@ -95,11 +99,22 @@ We can fix this by changing the bin width. Rather than a bin width of 20, we cou
 #|     - This histogram has a bin width of 10.
 #|     - This histogram has a bin width of 5.
 
-gf_histogram(~accept_rate, data = mn, breaks = seq(0, 100, by = 10), color = "black", fill = "#7A0019", alpha = 0.8) +
+ggplot(data = mn, (aes(x = accept_rate))) +
+  geom_histogram(
+    breaks = seq(0, 100, by = 10), 
+    color = "black", fill = "#7A0019", 
+    alpha = 0.8
+    ) +
   scale_x_continuous(name = "Acceptance Rate (in %)", breaks = seq(0, 100, by = 20)) +
   scale_y_continuous(name = "Count", breaks = seq(0, 20, by = 5))
 
-gf_histogram(~accept_rate, data = mn, breaks = seq(0, 100, by = 5), color = "black", fill = "#7A0019", alpha = 0.8) +
+
+ggplot(data = mn, (aes(x = accept_rate))) +
+  geom_histogram(
+    breaks = seq(0, 100, by = 5), 
+    color = "black", fill = "#7A0019", 
+    alpha = 0.8
+    ) +
   scale_x_continuous(name = "Acceptance Rate (in %)", breaks = seq(0, 100, by = 20)) +
   scale_y_continuous(name = "Count", breaks = seq(0, 20, by = 5))
 ```
@@ -122,7 +137,11 @@ An alternative to the histogram is a density plot. To create a density plot, ima
 #| echo: false
 
 
-gf_density(~accept_rate, data = mn, color = "black", fill = "#7A0019", alpha = 0.8) +
+ggplot(data = mn, (aes(x = accept_rate))) +
+  geom_density(
+    color = "black", fill = "#7A0019", 
+    alpha = 0.8
+    ) +
   scale_x_continuous(name = "Acceptance Rate (in %)", breaks = seq(0, 100, by = 10)) +
   scale_y_continuous(name = "Density")
 ```
@@ -289,7 +308,7 @@ Here is how we might describe the distribution of acceptance rates:
 
 ## Using R to Create Histograms
 
-To create a histogram or a density plot, we will use functions from the `{ggfomula}` library. As a reminder, in the first code chunk of your QMD document, load the `{tidyverse}` and `{ggformula}` libraries. Also use the `read_csv()` function to import the *mn-colleges.csv* data and assign the data into an object called `mn`. You also might want to view the data to ensure that it imported into the QMD correctly. (Don't forget to add code comments as well!)
+To create a histogram or a density plot, we will use functions from the `{tidyverse}` library. As a reminder, in the first code chunk of your QMD document, load the `{tidyverse}` library. Also use the `read_csv()` function to import the *mn-colleges.csv* data and assign the data into an object called `mn`. You also might want to view the data to ensure that it imported into the QMD correctly. (Don't forget to add code comments as well!)
 
 
 ```{r}
@@ -308,18 +327,17 @@ mn
 ```
 
 
-To create a histogram of the acceptance rates using the `gf_histogram()` function, we will first create a new code chunk in your QMD document where you want the histogram to appear. Inside the code chunk we will add the following syntax:
+To create a histogram of the acceptance rates, we will first create a new code chunk in your QMD document where you want the histogram to appear. In the ggplot syntax we will use two layers in our plot: `ggplot()` and `geom_histogram()`. Remember that the `ggplot()` layer (the global layer) indicates the data object and sets the primary aesthetic mapping for the plot. The `geom_histogram()` layer will use the information in the global layer to create the histogram. 
+
+In the global layer we will indicate the data object is `mn` using the argument `data=mn`. We will also set the aesthetic mapping for the *x*-position using `x=accept_rate` to indicate that we want to use the `accept_rate` attribute when we create the histogram. Also, remember that since we are mapping a column in the data set, the aesthetic mapping needs to be enclosed in the `aes()` function. The syntax is as follows:
 
 ```{r}
 #| eval: false
 
-gf_histogram(~accept_rate, data = mn)
+ggplot(data = mn, aes(x = accept_rate)) +
+  geom_histogram()
 ```
 
-
-
-- The first argument is a formula using the tilde operator (`~`) that identifies the attribute to be plotted. In our example, the name of the attribute is `accept_rate`. (Make sure you use the exact name of the attribute, including correct case and spelling!)
-- The second argument, `data =`, specifies the data object that was assigned on data import. Earlier in the QMD file you should have imported the *mn-colleges.csv* file and assigned it into an object. In our example, we assigned it into an object called `mn`.
 
 This should result in the following histogram:
 
@@ -330,22 +348,23 @@ This should result in the following histogram:
 #| fig-alt: "Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota."
 #| out-width: "70%"
 #| echo: false
+#| message: false
 
-
-gf_histogram(~accept_rate, data = mn)
+ggplot(data = mn, aes(x = accept_rate)) +
+  geom_histogram()
 ```
 
 A couple things to note.
 
 1. While the bars in the histogram are there, because we haven't made their border visible, some bars look wider than others.
-2. You will likely have a message saying "`stat_bin()` using `bins = 30`. Pick better value `binwidth`". This is because R by default chooses to create the bin width so that there are 30 bins in the histogram. Sometimes this is fine, other times we want more control over the bins.
+2. You will likely have a message saying: `stat_bin()  using bins = 30. Pick better value binwidth`. This is because R by default chooses to create the bin width so that there are 30 bins in the histogram. Sometimes this is fine, other times we want more control over the bins.
 
 <br />
 
 
 ### Adding Border and Bar Color
 
-To show the histogram bins more clearly, we can color the bin lines (the bar borders) to highlight the different bins. To do this we include an additional argument, `color=`, in the `gf_histogram()` function. We can also set the color for the bars themselves using the `fill=` argument. Here we color the bin lines black and set the bar color to yellow. Recall that since "black" and "yellow" are strings, we enclose them in quotation marks in the function.
+To show the histogram bins more clearly, we can color the bin lines (the bar borders) to highlight the different bins. To do this we include an additional argument, `color=`, in the `geom_histogram()` function. We can also set the color for the bars themselves using the `fill=` argument. Here we color the bin lines black and set the bar color to yellow. Recall that since "black" and "yellow" are strings, we enclose them in quotation marks in the function. Also note that these mappings are NOT enclosed in an `aes()` functions since "black" and "yellow" are not column names in the `mn` data object.
 
 
 ```{r}
@@ -353,10 +372,11 @@ To show the histogram bins more clearly, we can color the bin lines (the bar bor
 #| fig-cap: "Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota. The bin lines are now colored black and the bars are colored yellow."
 #| fig-alt: "Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota. The bin lines are now colored black and the bars are colored yellow."
 #| out-width: "70%"
-#| echo: false
+#| echo: true
+#| message: false
 
-
-gf_histogram(~accept_rate, data = mn, color = "black", fill = "yellow")
+ggplot(data = mn, aes(x = accept_rate)) +
+  geom_histogram(color = "black", fill = "yellow")
 ```
 
 There are 657 different color names that R knows. These are depicted in @fig-named-colors.
@@ -378,15 +398,17 @@ knitr::include_graphics("figs/03-01-03-r-colors.png")
 ### Changing the Bin Width
 
 
-To change the number of bins, we add the argument `bins=` to the `gf_histogram()` function. For example, if we wanted there to be 10 bins rather than the 30 default bins, we would use the following syntax:
+To change the number of bins, we add the argument `bins=` to the `geom_histogram()` function. For example, if we wanted there to be 10 bins rather than the 30 default bins, we would use the following syntax:
 
 ```{r}
 #| label: fig-hist-03
 #| fig-cap: "Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota. This histogram has 10 bins."
 #| fig-alt: "Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota. This histogram has 10 bins."
 #| out-width: "70%"
+#| message: false
 
-gf_histogram(~accept_rate, data = mn, color = "black", fill = "yellow", bins = 10)
+ggplot(data = mn, aes(x = accept_rate)) +
+  geom_histogram(color = "black", fill = "yellow", bins = 10)
 ```
 
 By changing the number of bins we are changing how wide each bin actually is. The way R computes the bin width is to take the maximum value in the data and subtract the minimum value in the data, and then divide it by the number of bins. In our example, the maximum acceptance rate in the data is 96.90 and the minimum acceptance rate is 19.10. So for the default of 30 bins:
@@ -404,7 +426,7 @@ $$
 In this histogram the first bin would include values between 19.10 and 26.88. The second bin would include values from 26.88 and 34.66. Etc.
 
 
-Rather than choosing the number of bins, you can instead choose the desired bin width by including the argument `binwidth=` in the `gf_histogram()` function. For example, to choose a bin width of 1, we could use the following:
+Rather than choosing the number of bins, you can instead choose the desired bin width by including the argument `binwidth=` in the `geom_histogram()` function. For example, to choose a bin width of 1, we could use the following:
 
 ```{r}
 #| label: fig-hist-04
@@ -412,13 +434,14 @@ Rather than choosing the number of bins, you can instead choose the desired bin 
 #| fig-alt: "Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota. This histogram has a bin width of 5."
 #| out-width: "70%"
 
-gf_histogram(~accept_rate, data = mn, color = "black", fill = "yellow", binwidth = 1)
+ggplot(data = mn, aes(x = accept_rate)) +
+  geom_histogram(color = "black", fill = "yellow", binwidth = 1)
 ```
 
 :::fyi
 **PROTIP**
 
-In the `gf_histogram()` function you cannot include both `bins=` and `binwidth=`. Use one or the other. If you include both, R will use whichever one appears first in the function and will ignore the other argument.
+In the `geom_histogram()` function you cannot include both `bins=` and `binwidth=`. Use one or the other. If you include both, R will use whichever one appears first in the function and will ignore the other argument.
 :::
 
 
@@ -433,7 +456,7 @@ To do that, you generally want to find the middle ground between each data value
 
 ## Using R to Create Density Plots
 
-The syntax for creating a density plot, is quite similar to that for creating a histogram, except we use the `gf_density()` rather than the `gf_histogram()` function. Start by creating a new code chunk to hold the syntax for your density plot. Then, in the code chunk, add the following syntax.
+The syntax for creating a density plot, is quite similar to that for creating a histogram, except we use the `geom_density()` rather than the `geom_histogram()` function. Start by creating a new code chunk to hold the syntax for your density plot. Then, in the code chunk, add the following syntax.
 
 
 ```{r}
@@ -442,15 +465,11 @@ The syntax for creating a density plot, is quite similar to that for creating a 
 #| fig-alt: "Density plot of acceptance rates for the 33 institutions of higher learning in Minnesota."
 #| out-width: "70%"
 
-gf_density(~accept_rate, data = mn)
+ggplot(data = mn, aes(x = accept_rate)) +
+  geom_density()
 ```
 
-The main two arguments for this function are identical to those in `gf_histogram()`. Namely,
-
-- The first argument is a formula using the tilde operator (`~`) that identifies the attribute to be plotted.
-- The second argument, `data =`, specifies the data object that was assigned on data import.
-
-Similar to the histogram, we can also specify the `color=` and `fill=` arguments in the `gf_density()` function. The `color=` argument specifies the border color of the density plot and `fill=` specifies the interior color of the density plot. 
+Similar to the histogram, we can also specify the `color=` and `fill=` arguments in the `geom_density()` function. The `color=` argument specifies the border color of the density plot and `fill=` specifies the interior color of the density plot. 
 
 ```{r}
 #| label: fig-density-plot-02
@@ -458,7 +477,8 @@ Similar to the histogram, we can also specify the `color=` and `fill=` arguments
 #| fig-alt: "Density plot of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored black and the interior of the plot is filled with yellow."
 #| out-width: "70%"
 
-gf_density(~accept_rate, data = mn, color = "black", fill = "yellow")
+ggplot(data = mn, aes(x = accept_rate)) +
+  geom_density(color = "black", fill = "yellow")
 ```
 
 
@@ -478,7 +498,10 @@ Deciding between using a histogram or density plot to visualize a quantitative a
 <div id="exercise_03-01-01" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 #| fig-alt: "Histogram of the number of applicants for the 33 institutions of higher learning in Minnesota."
-gf_histogram(~applicants, data = mn, color = "maroon", fill = "gold")
+#| message: false
+
+ggplot(data = mn, aes(x = applicants)) +
+  geom_histogram(color = "maroon", fill = "gold")
 ```
 </div>
 
@@ -490,7 +513,9 @@ gf_histogram(~applicants, data = mn, color = "maroon", fill = "gold")
 <div id="exercise_03-01-02" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 #| fig-alt: "Histogram of the number of applicants for the 33 institutions of higher learning in Minnesota."
-gf_histogram(~applicants, data = mn, bins = 15, color = "black", fill = "mediumpurple1")
+
+ggplot(data = mn, aes(x = applicants)) +
+  geom_histogram(bins = 15, color = "black", fill = "mediumpurple1")
 ```
 </div>
 
@@ -504,10 +529,12 @@ gf_histogram(~applicants, data = mn, bins = 15, color = "black", fill = "mediump
 #| out-width: "80%"
 #| echo: false
 
-gf_histogram(~applicants, data = mn, 
-             breaks = seq(from = 0, to = 42000, by = 2000), 
-             color = "black", fill = "#7A0019", 
-             alpha = 0.8) +
+ggplot(data = mn, aes(x = applicants)) +
+  geom_histogram(
+    breaks = seq(from = 0, to = 42000, by = 2000), 
+    color = "black", fill = "#7A0019", 
+    alpha = 0.8
+  ) +
   scale_x_continuous(
     name = "Number of Applicants", 
     breaks = seq(from = 0, to = 42000, by = 2000),
@@ -530,7 +557,9 @@ There are 13 institutions of higher learning in Minnesota that got between 0 and
 <div id="exercise_03-01-04" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
 #| fig-alt: "Density plot of the number of applicants for the 33 institutions of higher learning in Minnesota."
-gf_density(~applicants, data = mn, color = "royalblue4", fill = "skyblue")
+
+ggplot(data = mn, aes(x = applicants)) +
+  geom_density(color = "royalblue4", fill = "skyblue")
 ```
 
 </div>

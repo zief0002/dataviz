@@ -60,7 +60,7 @@ In data visualizations, the caption is typically used to indicate the source of 
 
 ## Adding Labels to a Plot in R
 
-To illustrate how we can add labels to a plot, we are going to re-create the horizontal bar chart of the number of UMN buildings classified for each type of primary use (e.g., parking, residential). As a reminder, in the first code chunk of your QMD document, load the `{tidyverse}` and `{ggformula}` libraries. Also use the `read_csv()` function to import the *umn-buildings.csv* data and assign the data into an object called `umn`. You also might want to view the data to ensure that it imported into the QMD document correctly. (Don't forget to add code comments as well!)
+To illustrate how we can add labels to a plot, we are going to re-create the horizontal bar chart of the number of UMN buildings classified for each type of primary use (e.g., parking, residential). As a reminder, in the first code chunk of your QMD document, load the `{tidyverse}` library and use the `read_csv()` function to import the *umn-buildings.csv* data and assign the data into an object called `umn`. (You also might want to view the data to ensure that it imported into the QMD document correctly.) Don't forget to add code comments as well!
 
 
 ```{r}
@@ -68,14 +68,10 @@ To illustrate how we can add labels to a plot, we are going to re-create the hor
 #| message: false
 
 # Load libraries
-library(ggformula)
 library(tidyverse)
 
 # Import data
 umn <- read_csv("data/umn-buildings.csv")
-
-# View data
-umn
 ```
 
 To create our initial bar chart we used the following syntax in a new code chunk.
@@ -85,7 +81,11 @@ To create our initial bar chart we used the following syntax in a new code chunk
 #| fig-cap: "Horizontal bar chart of the number of each building type owned by UMN. This plot includes a border and fill color."
 #| fig-alt: "Horizontal Bar chart of the number of each building type owned by UMN. This plot includes a border and fill color."
 
-gf_counts(type ~ ., data = umn, color = "black", fill = "maroon")
+ggplot(data = umn, aes(y = type)) +
+  geom_bar(
+    color = "black", 
+    fill = "maroon"
+  )
 ```
 
 
@@ -95,30 +95,23 @@ gf_counts(type ~ ., data = umn, color = "black", fill = "maroon")
 ### Adding Labels to the UMN Buildings Bar Chart
 
 
-To add labels, we are going to modify our original plot by using the `gf_labs()` function. We will connect the original `gf_counts()` function and the `gf_labs()` function together using the `|>` operator. Connecting functions together is called *piping* and the operator is referred to as the pipe. So the bones of the code will look like this:
+To add labels, we are going to modify our original plot by adding a layer to our plot using the `labs()` function. So the bones of the code will look like this:
 
 
 
 ```{r}
 #| eval: false
 
-gf_counts() |> gf_labs()
+ggplot() +
+  geom_bar() +
+  labs()
 ```
 
 
-Good coding practice suggests that any modifications to the plot go on a separate line of code; this makes it easier to understand the code and also makes it easier for humans to read. The pipe operator is left on the same line of code as the original  `gf_counts()` function. Then the `gf_labs()` function is placed on the subsequent line of code and indented. (The indentation helps humans see that this is all part of the same plot.) Here is what that looks like:
+Remember, good coding practice suggests that any modifications to the plot go on a separate line of code; this makes it easier to understand the code and also makes it easier for humans to read. 
 
 
-
-```{r}
-#| eval: false
-
-gf_counts() |>
-  gf_labs()
-```
-
-
-There are several arguments for `gf_labs()` depending on which label you want to add/edit. Five arguments^[There are other arguments that can also be added to `gf_labs()` that you will learn about later in the textbook. These helps us change the labels for our plot legends, etc. ] that we will use a lot include:
+There are several arguments for `labs()` depending on which label you want to add/edit. Five arguments^[There are other arguments that can also be added to `gf_labs()` that you will learn about later in the textbook. These helps us change the labels for our plot legends, etc. ] that we will use a lot include:
 
 - `x=`: This argument adds/edits the label on the *x*-axis.
 - `y=`: This argument adds/edits the label on the *y*-axis.
@@ -136,8 +129,12 @@ Each of these arguments takes a text string (i.e., enclosed in quotation marks) 
 #| fig-width: 10
 #| fig-height: 6
 
-gf_counts(type ~ ., data = umn, color = "black", fill = "maroon") |>
-  gf_labs(
+ggplot(data = umn, aes(y = type)) +
+  geom_bar(
+    color = "black", 
+    fill = "maroon"
+  ) +
+  labs(
     x = "Number of Buildings",
     y = "Building Type",
     title = "Buildings Owned by the University of Minnesota",
@@ -158,8 +155,12 @@ Writing good labels is a process, and much like essays or papers, your first dra
 #| fig-width: 10
 #| fig-height: 6
 
-gf_counts(type ~ ., data = umn, color = "black", fill = "maroon") |>
-  gf_labs(
+ggplot(data = umn, aes(y = type)) +
+  geom_bar(
+    color = "black", 
+    fill = "maroon"
+  ) +
+  labs(
     x = "Number of Buildings",
     y = "",
     title = "PRIMARY DESIGNATION OF BUILDINGS ON THE TWIN CITIES CAMPUS",
@@ -189,8 +190,12 @@ In long labels, you can add a line break with `\n`. This means newline. You can 
 #| fig-width: 10
 #| fig-height: 6
 
-gf_counts(type ~ ., data = umn, color = "black", fill = "maroon") |>
-  gf_labs(
+ggplot(data = umn, aes(y = type)) +
+  geom_bar(
+    color = "black", 
+    fill = "maroon"
+  ) +
+  labs(
     x = "Number of Buildings",
     y = "",
     title = "PRIMARY DESIGNATION OF BUILDINGS ON THE TWIN CITIES CAMPUS",
@@ -230,7 +235,7 @@ In this visualization it is fairly obvious from the title and subtitle what the 
 </div>
 
 
-2. Write the syntax you would add into the `gf_labs()` function if you were creating this plot using R.
+2. Write the syntax you would add into the `labs()` function if you were creating this plot using R.
 
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-02-02');">Show/Hide Solution</button>
 
@@ -238,7 +243,7 @@ In this visualization it is fairly obvious from the title and subtitle what the 
 ```{r}
 #| eval: false
 
-gf_labs(
+labs(
   x = "",
   name = "",
   title = "2025 MINNESOTA LYNX PLAYING TIME",
@@ -272,8 +277,12 @@ Imagine that this has been imported into a data object called `bike_amenities`. 
 
 <div id="exercise_04-02-03" style="display:none; margin: -40px 0 40px 40px;">
 ```{r}
-gf_counts(campus ~ ., data = bike_amenities, color = "black", fill = "yellow") |>
-  gf_labs(
+ggplot(data = bike_amenities, aes(y = campus)) +
+  geom_bar(
+    color = "black", 
+    fill = "yellow"
+  ) +
+  labs(
     x = "Number of bike amenities",
     y = "",
     title = "BIKE AMENITIES BY CAMPUS LOCATION",

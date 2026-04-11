@@ -95,7 +95,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-d6a2ae2cb249da1580f0a11f71b8f854.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-11fea41301a8e7f2b590d67b65f5ed98.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9efa02ec1c9fc2ae2ff3301d4cc10a3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -297,6 +297,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./04-02-labels.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Adding Labels to a Plot</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-03-themes-and-color-palettes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Plot Themes and Font Choices</span></span></a>
   </div>
 </li>
       </ul>
@@ -582,38 +588,39 @@ window.Quarto = {
 </section>
 <section id="using-hex-colors-in-r" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="using-hex-colors-in-r"><span class="header-section-number">6.5</span> Using HEX Colors in R</h2>
-<p>To illustrate how to use HEX colors in our data visualizations, we will work with the <em>mn-colleges.csv</em> data. In the first code chunk of your QMD document, load the <code>{tidyverse}</code> and <code>{ggformula}</code> libraries. Also use the <code>read_csv()</code> function to import the <em>mn-colleges.csv</em> data and assign the data into an object called <code>mn</code>. You also might want to view the data to ensure that it imported into the QMD correctly. (Don’t forget to add code comments as well!)</p>
+<p>To illustrate how to use HEX colors in our data visualizations, we will work with the <em>mn-colleges.csv</em> data. In the first code chunk of your QMD document, load the <code>{tidyverse}</code> library and use the <code>read_csv()</code> function to import the <em>mn-colleges.csv</em> data and assign the data into an object called <code>mn</code>. (You also might want to view the data to ensure that it imported into the QMD correctly.) Don’t forget to add code comments as well!</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mn <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/mn-colleges.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>mn <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/mn-colleges.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>We will create a boxplot of the acceptance rates using the <code>gf_boxplot()</code> function in a new code chunk in the QMD document. Inside the code chunk we will add the following syntax:</p>
+<p>We will create a histogram of the acceptance rates using the <code>geom_histogram()</code> function in a new code chunk in the QMD document. Inside the code chunk we will add the following syntax:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_boxplot</span>(<span class="sc">~</span>accept_rate, <span class="at">data =</span> mn)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mn, <span class="fu">aes</span>(<span class="at">x =</span> accept_rate)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We can use HEX colors in the <code>color=</code> and <code>fill=</code> arguments. Similar to the color names we used, the HEX codes need to be enclosed in quotation marks. We also need to include the hashtag (<code>#</code>) to inform R that the color is in HEX notation. For example, to color the interior of our boxplot using the primary UMN maroon (<code>#7A0019</code>) and the border using the secondary dark gold (<code>#FFB71E</code>), we use:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_boxplot</span>(<span class="sc">~</span>accept_rate, <span class="at">data =</span> mn, <span class="at">color =</span> <span class="st">"#FFB71E"</span>, <span class="at">fill =</span> <span class="st">"#7A0019"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mn, <span class="fu">aes</span>(<span class="at">x =</span> accept_rate)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"#FFB71E"</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"#7A0019"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-bp-umn" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Boxplot of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN.">
+<div id="fig-bp-umn" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bp-umn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="04-01-color_files/figure-html/fig-bp-umn-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;6.1: Boxplot of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN."><img src="04-01-color_files/figure-html/fig-bp-umn-1.png" class="img-fluid figure-img" style="width:70.0%" alt="Boxplot of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN."></a>
+<a href="04-01-color_files/figure-html/fig-bp-umn-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;6.1: Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN."><img src="04-01-color_files/figure-html/fig-bp-umn-1.png" class="img-fluid figure-img" style="width:70.0%" alt="Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bp-umn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.1: Boxplot of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN.
+Figure&nbsp;6.1: Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota. The border is colored using the secondary dark gold and the interior of the plot is filled with the primary maroon color for UMN.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<!-- ### Colorblind -->
-<!-- About 8% of men and 1% of women have some form of color impairment. Most people with color deficiencies aren't aware that the colors they perceive as identical appear different to other people. Most still perceive color, but certain colors are transmitted to the brain differently. -->
-<!-- The most common impairment is red and green dichromatism which causes red and green to appear indistinguishable. Other impairments affect other color pairs. People with total color blindness are very rare. -->
 <p><br></p>
 </section>
 <section id="exercises-your-turn" class="level2 unnumbered">
@@ -736,22 +743,26 @@ Show/Hide Solution
 <p>#FFB71E is (255, 183, 30)</p>
 </div>
 <ol start="4" type="1">
-<li>Use the <em>mn-colleges.csv</em> data to create a histogram of the acceptance rates. Color the interior of the bars using #CBA67B and the bar borders with #695645.</li>
+<li>Use the <em>mn-colleges.csv</em> data to create a density plot of the acceptance rates. Color the interior of the plot using #CBA67B and the border with #695645.</li>
 </ol>
 <button class="solution-btn solution-btn-default" onclick="toggle_visibility('exercise_04-01-04');">
 Show/Hide Solution
 </button>
 <div id="exercise_04-01-04" style="display:none; margin: -40px 0 40px 40px;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>accept_rate, <span class="at">data =</span> mn, <span class="at">color =</span> <span class="st">"#695645"</span>, <span class="at">fill =</span> <span class="st">"#CBA67B"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mn, <span class="fu">aes</span>(<span class="at">x =</span> accept_rate)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"#695645"</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"#CBA67B"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-hist-umn" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota.">
+<div id="fig-hist-umn" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Density plot of acceptance rates for the 33 institutions of higher learning in Minnesota.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hist-umn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="04-01-color_files/figure-html/fig-hist-umn-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;6.2: Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota."><img src="04-01-color_files/figure-html/fig-hist-umn-1.png" class="img-fluid figure-img" style="width:70.0%" alt="Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota."></a>
+<a href="04-01-color_files/figure-html/fig-hist-umn-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;6.2: Density plot of acceptance rates for the 33 institutions of higher learning in Minnesota."><img src="04-01-color_files/figure-html/fig-hist-umn-1.png" class="img-fluid figure-img" style="width:70.0%" alt="Density plot of acceptance rates for the 33 institutions of higher learning in Minnesota."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hist-umn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.2: Histogram of acceptance rates for the 33 institutions of higher learning in Minnesota.
+Figure&nbsp;6.2: Density plot of acceptance rates for the 33 institutions of higher learning in Minnesota.
 </figcaption>
 </figure>
 </div>
