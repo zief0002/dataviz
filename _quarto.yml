@@ -30,9 +30,9 @@ book:
       chapters:
         - 03-01-visualizing-quantitative-attributes.qmd
         - 03-02-visualizing-categorical-attributes.qmd
+        - 04-01-color.qmd
     - part: 04-00-plot-enhancement.qmd
       chapters:
-        - 04-01-color.qmd
         - 04-02-labels.qmd
         - 04-03-annotations.qmd
         - 04-04-scales.qmd
