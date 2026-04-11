@@ -1,4 +1,4 @@
-# Adding Labels to a Plot  {#sec-labels}
+# Labels: Improving Interpretation  {#sec-labels}
 
 This chapter will focus on how we can add labels to a plot. Labels include not only the information attached to a plot's axes, but also a title, subtitle, and footnote to a plot. Labels help us convey information about the datas' context to people who are engaging with our plot. They also act as a tool to help those readers make more accurate interpretations about the information being presented in the visualization.
 
@@ -40,15 +40,6 @@ This visualization examines the relationship between the Rotten Tomatoes rating 
 <br />
 
 
-## Axis Labels
-
-Axis labels are typically included to provide important cues for interpreting data visualizations. They define the attributes that are being plotted and also often give information about the scales of those attributes. @fig-college-cost provides a label for the *y*-axis which informs us that what is being plotted is the change in percentage. Notice that there is no label on the *x*-axis in this visualization. 
-
-Despite what your math teachers in high school may have taught you, not every axis needs to be labelled---although it can't hurt. In this visualization, the data plotted along the *x*-axis is year. When you look at this visualization, it is instantly obvious what the values on this axis are without a label telling you this. Moreover, after reading the title and subtitle, you could intuit that these values represent years without a label. In contrast, @fig-adam-sandler-movies includes a label on both axes, since what is being plotted there needs additional text to help the reader interpret the visualization.
-
-<br />
-
-
 ## Caption
 
 In data visualizations, the caption is typically used to indicate the source of the underlying data. This is important because it helps give credibility to the visualization by making the source of the data transparent. It can also be used to provide notes that give additional information about the underlying data (e.g., how values were computed). The captions in @fig-college-cost do both of these. The caption on the bottom-right of the visualization provides the source of the underlying data, while the caption on the bottom-left gives us additional information about the basis for how the CPI-based inflation was calculated. In @fig-adam-sandler-movies, the caption only provides the source of the data used in the visualization.
@@ -56,6 +47,14 @@ In data visualizations, the caption is typically used to indicate the source of 
 
 <br />
 
+
+## Axis Labels
+
+Axis labels are typically included to provide important cues for interpreting data visualizations. They define the attributes that are being plotted and also often give information about the scales of those attributes. @fig-college-cost provides a label for the *y*-axis which informs us that what is being plotted is the change in percentage. Notice that there is no label on the *x*-axis in this visualization. 
+
+Despite what your math teachers in high school may have taught you, not every axis needs to be labelled---although it can't hurt. In this visualization, the data plotted along the *x*-axis is year. When you look at this visualization, it is instantly obvious what the values on this axis are without a label telling you this. Moreover, after reading the title and subtitle, you could intuit that these values represent years without a label. In contrast, @fig-adam-sandler-movies includes a label on both axes, since what is being plotted there needs additional text to help the reader interpret the visualization.
+
+<br />
 
 
 ## Adding Labels to a Plot in R

@@ -1,4 +1,4 @@
-# Plot Themes and Font Choices {#sec-themes}
+# Themes: Customizing the Background and Fonts {#sec-themes}
 
 This chapter will focus on how we can continue to improve the aesthetics of a plot by customizing the theme. Plot theme is important for branding and also plays a role in further improving readability of a plot. The theme of a plot can also set the emotional tone by conveying cues about the context.
 

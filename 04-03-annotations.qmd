@@ -1,4 +1,4 @@
-# Annotations
+# Annotations: Contextualing Interesting Findings
 
 
 This chapter will focus on how we can continue to improve the information conveyed in a plot by adding annotations. 
