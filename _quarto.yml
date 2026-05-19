@@ -38,8 +38,8 @@ book:
         - 04-04-scales.qmd
         - 04-05-themes.qmd
         - 04-06-blast.qmd
-    # - part: 05-00-modeling-nonindependence.qmd
-    #   chapters:
+    - part: 06-00-temporal-visualizations.qmd
+      # chapters:
     #     - 05-01-introduction-to-mixed-effects-models.qmd
     #     - 05-02-lmer-average-change-over-time.qmd
     #     - 05-03-lmer-other-random-effects-and-covariates.qmd
