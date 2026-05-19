@@ -286,6 +286,10 @@ function toggle_visibility(id) {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Visualizations to Address Change Over Time</span></span>
+  </li>
     </ul>
     </div>
 </nav>
@@ -321,8 +325,8 @@ function toggle_visibility(id) {
 <p>Recall that the data structure that is useful for our data visualization tools is tabular in that the data are organized into rows and columns. Remember also that in this structure, the rows represent <strong>cases</strong> and the columns represent <strong>attributes</strong>. Consider the data below about the 1990’s band The Spice Girls.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-f9a03c86233b7b717a40" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-f9a03c86233b7b717a40">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5"],["Scary","Sporty","Baby","Ginger","Posh"],[19,20,18,22,20],["Yes","Yes","No","Yes","No"],[4,26,14,13,12],["Mel B","Mel C","Emma","Geri","Victoria"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>spice_name<\/th>\n      <th>age<\/th>\n      <th>original_member<\/th>\n      <th>solo_nominations<\/th>\n      <th>real_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"spice_name","targets":1},{"name":"age","targets":2},{"name":"original_member","targets":3},{"name":"solo_nominations","targets":4},{"name":"real_name","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-15c10f2c3ba7c9884d90" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-15c10f2c3ba7c9884d90">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5"],["Scary","Sporty","Baby","Ginger","Posh"],[19,20,18,22,20],["Yes","Yes","No","Yes","No"],[4,26,14,13,12],["Mel B","Mel C","Emma","Geri","Victoria"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>spice_name<\/th>\n      <th>age<\/th>\n      <th>original_member<\/th>\n      <th>solo_nominations<\/th>\n      <th>real_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"spice_name","targets":1},{"name":"age","targets":2},{"name":"original_member","targets":3},{"name":"solo_nominations","targets":4},{"name":"real_name","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>In this data, each row indicates a different Spice Girl (cases) and the five attributes include information (e.g., name, age, number of solo award nominations, and whether they were an original band member) about each of them. We are going to create a CSV file of these data and import that CSV file into a RMD document.</p>
@@ -336,7 +340,7 @@ function toggle_visibility(id) {
 <div id="fig-blank-sheet" class="quarto-float quarto-figure quarto-figure-center anchored" alt="After creating a new spreadsheet document you will see a blank array of rows and columns---perfect for entering tabular data.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-blank-sheet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/02-02-01-blank-spreadsheet.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;3.1: After creating a new spreadsheet document you will see a blank array of rows and columns—perfect for entering tabular data."><img src="figs/02-02-01-blank-spreadsheet.png" class="img-fluid figure-img" alt="After creating a new spreadsheet document you will see a blank array of rows and columns---perfect for entering tabular data." width="478"></a>
+<a href="figs/02-02-01-blank-spreadsheet.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;3.1: After creating a new spreadsheet document you will see a blank array of rows and columns—perfect for entering tabular data."><img src="figs/02-02-01-blank-spreadsheet.png" class="img-fluid figure-img" alt="After creating a new spreadsheet document you will see a blank array of rows and columns---perfect for entering tabular data."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blank-sheet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.1: After creating a new spreadsheet document you will see a blank array of rows and columns—perfect for entering tabular data.
@@ -362,7 +366,7 @@ Figure&nbsp;3.1: After creating a new spreadsheet document you will see a blank 
 <div id="fig-attribute-names" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Attribute names are entered in the first row of a spreadsheet, each in a separate column.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-attribute-names-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/02-02-02-attribute-names.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;3.2: Attribute names are entered in the first row of a spreadsheet, each in a separate column."><img src="figs/02-02-02-attribute-names.png" class="img-fluid figure-img" alt="Attribute names are entered in the first row of a spreadsheet, each in a separate column." width="770"></a>
+<a href="figs/02-02-02-attribute-names.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;3.2: Attribute names are entered in the first row of a spreadsheet, each in a separate column."><img src="figs/02-02-02-attribute-names.png" class="img-fluid figure-img" alt="Attribute names are entered in the first row of a spreadsheet, each in a separate column."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-attribute-names-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.2: Attribute names are entered in the first row of a spreadsheet, each in a separate column.
@@ -402,7 +406,7 @@ Figure&nbsp;3.2: Attribute names are entered in the first row of a spreadsheet, 
 <div id="fig-scary-spice" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scary Spice's data is entered into the row after the attribute names.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-scary-spice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/02-02-03-scary-spice.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3.3: Scary Spice’s data is entered into the row after the attribute names."><img src="figs/02-02-03-scary-spice.png" class="img-fluid figure-img" alt="Scary Spice's data is entered into the row after the attribute names." width="771"></a>
+<a href="figs/02-02-03-scary-spice.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3.3: Scary Spice’s data is entered into the row after the attribute names."><img src="figs/02-02-03-scary-spice.png" class="img-fluid figure-img" alt="Scary Spice's data is entered into the row after the attribute names."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scary-spice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.3: Scary Spice’s data is entered into the row after the attribute names.
@@ -449,7 +453,7 @@ Figure&nbsp;3.3: Scary Spice’s data is entered into the row after the attribut
 <div id="fig-all-spice-girls" class="quarto-float quarto-figure quarto-figure-center anchored" alt="All five Spice Girl's data is entered into spreadsheet. Each Spice Girl's data appears in a different row.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-all-spice-girls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/02-02-04-all-spice-girls.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;3.4: All five Spice Girl’s data is entered into spreadsheet. Each Spice Girl’s data appears in a different row."><img src="figs/02-02-04-all-spice-girls.png" class="img-fluid figure-img" alt="All five Spice Girl's data is entered into spreadsheet. Each Spice Girl's data appears in a different row." width="769"></a>
+<a href="figs/02-02-04-all-spice-girls.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;3.4: All five Spice Girl’s data is entered into spreadsheet. Each Spice Girl’s data appears in a different row."><img src="figs/02-02-04-all-spice-girls.png" class="img-fluid figure-img" alt="All five Spice Girl's data is entered into spreadsheet. Each Spice Girl's data appears in a different row."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-all-spice-girls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.4: All five Spice Girl’s data is entered into spreadsheet. Each Spice Girl’s data appears in a different row.
@@ -464,7 +468,7 @@ Figure&nbsp;3.4: All five Spice Girl’s data is entered into spreadsheet. Each 
 <div id="fig-blank-cell" class="quarto-float quarto-figure quarto-figure-center anchored" alt="If Sporty Spice's age were unknown or missing, we would leave that cell blank in the spreadsheet.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-blank-cell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/02-02-05-blank-age.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;3.5: If Sporty Spice’s age were unknown or missing, we would leave that cell blank in the spreadsheet."><img src="figs/02-02-05-blank-age.png" class="img-fluid figure-img" alt="If Sporty Spice's age were unknown or missing, we would leave that cell blank in the spreadsheet." width="772"></a>
+<a href="figs/02-02-05-blank-age.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;3.5: If Sporty Spice’s age were unknown or missing, we would leave that cell blank in the spreadsheet."><img src="figs/02-02-05-blank-age.png" class="img-fluid figure-img" alt="If Sporty Spice's age were unknown or missing, we would leave that cell blank in the spreadsheet."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blank-cell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.5: If Sporty Spice’s age were unknown or missing, we would leave that cell blank in the spreadsheet.
@@ -495,7 +499,7 @@ Figure&nbsp;3.5: If Sporty Spice’s age were unknown or missing, we would leave
 <div id="fig-csv-plain-text" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Screenshot of the *spice-girls.csv* file after it is opened in a text editor. Data values in each row are separated by a comma.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-csv-plain-text-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/02-02-09-plain-text.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;3.6: Screenshot of the spice-girls.csv file after it is opened in a text editor. Data values in each row are separated by a comma."><img src="figs/02-02-09-plain-text.png" class="img-fluid figure-img" alt="Screenshot of the *spice-girls.csv* file after it is opened in a text editor. Data values in each row are separated by a comma." width="413"></a>
+<a href="figs/02-02-09-plain-text.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;3.6: Screenshot of the spice-girls.csv file after it is opened in a text editor. Data values in each row are separated by a comma."><img src="figs/02-02-09-plain-text.png" class="img-fluid figure-img" alt="Screenshot of the *spice-girls.csv* file after it is opened in a text editor. Data values in each row are separated by a comma."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-csv-plain-text-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.6: Screenshot of the <em>spice-girls.csv</em> file after it is opened in a text editor. Data values in each row are separated by a comma.
@@ -515,7 +519,7 @@ Figure&nbsp;3.6: Screenshot of the <em>spice-girls.csv</em> file after it is ope
 <div id="fig-import-rmd" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The RMD and CSV files should be located in the same folder on your computer.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-import-rmd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/02-02-07-same-folder.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;3.7: The RMD and CSV files should be located in the same folder on your computer."><img src="figs/02-02-07-same-folder.png" class="img-fluid figure-img" alt="The RMD and CSV files should be located in the same folder on your computer." width="498"></a>
+<a href="figs/02-02-07-same-folder.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;3.7: The RMD and CSV files should be located in the same folder on your computer."><img src="figs/02-02-07-same-folder.png" class="img-fluid figure-img" alt="The RMD and CSV files should be located in the same folder on your computer."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-import-rmd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.7: The RMD and CSV files should be located in the same folder on your computer.
@@ -542,7 +546,7 @@ Figure&nbsp;3.7: The RMD and CSV files should be located in the same folder on y
 <div id="fig-rmd-document" class="quarto-float quarto-figure quarto-figure-center anchored" alt="An RMD document with a setup code chunk loading libraries and importing the data. This code chunk is immediately after the YAML.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rmd-document-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/02-02-06-rmd-import.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;3.8: An RMD document with a setup code chunk loading libraries and importing the data. This code chunk is immediately after the YAML."><img src="figs/02-02-06-rmd-import.png" class="img-fluid figure-img" alt="An RMD document with a setup code chunk loading libraries and importing the data. This code chunk is immediately after the YAML." width="903"></a>
+<a href="figs/02-02-06-rmd-import.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;3.8: An RMD document with a setup code chunk loading libraries and importing the data. This code chunk is immediately after the YAML."><img src="figs/02-02-06-rmd-import.png" class="img-fluid figure-img" alt="An RMD document with a setup code chunk loading libraries and importing the data. This code chunk is immediately after the YAML."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rmd-document-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.8: An RMD document with a setup code chunk loading libraries and importing the data. This code chunk is immediately after the YAML.
@@ -581,7 +585,7 @@ Figure&nbsp;3.8: An RMD document with a setup code chunk loading libraries and i
 <div id="fig-rendered-rmd" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The rendered RMD file should show your syntax and the output of viewing the data.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rendered-rmd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/02-02-08-rendered-rmd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;3.9: The rendered RMD file should show your syntax and the output of viewing the data."><img src="figs/02-02-08-rendered-rmd.png" class="img-fluid figure-img" alt="The rendered RMD file should show your syntax and the output of viewing the data." width="653"></a>
+<a href="figs/02-02-08-rendered-rmd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;3.9: The rendered RMD file should show your syntax and the output of viewing the data."><img src="figs/02-02-08-rendered-rmd.png" class="img-fluid figure-img" alt="The rendered RMD file should show your syntax and the output of viewing the data."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rendered-rmd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.9: The rendered RMD file should show your syntax and the output of viewing the data.
